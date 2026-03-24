@@ -22,7 +22,7 @@ const PROJECTS = [
   },
   {
     title: 'Creator Connect App',
-    period: '',
+    period: "Feb '26",
     description:
       'A collaboration platform for small creators with clean onboarding, scalable architecture, and a modern presentation layer.',
     tags: ['Node.js', 'Express.js', 'REST APIs'],
@@ -40,23 +40,19 @@ const PROJECTS = [
     tone: 'from-[#ff6464]/25 to-transparent',
   },
   {
-    title: 'Weather Fetching App',
-    period: '',
-    description:
-      'A responsive weather dashboard that pairs real-time data with a simple and highly readable user interface.',
-    tags: ['JavaScript', 'OpenWeather API', 'Responsive UI'],
-    screenshots: [],
-    github: 'https://github.com/aryanishan',
-    live: '#',
-    tone: 'from-[#ff8b5c]/25 to-transparent',
-  },
-  {
     title: 'Spam SMS Detector',
-    period: '',
+    period: "Jun '25",
     description:
       'An NLP-powered project that classifies messages with a machine learning pipeline and a practical Flask integration.',
     tags: ['Python', 'Scikit-learn', 'Flask'],
-    screenshots: [],
+    screenshots: [
+      '/spam-sms-1.png',
+      '/spam-sms-2.png',
+      '/spam-sms-3.png',
+      '/spam-sms-4.png',
+      '/spam-sms-5.png',
+      '/spam-sms-6.png',
+    ],
     github: 'https://github.com/aryanishan',
     live: '#',
     tone: 'from-[#ff7a65]/20 to-transparent',
