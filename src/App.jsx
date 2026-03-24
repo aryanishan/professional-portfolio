@@ -295,6 +295,28 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const animatedItems = document.querySelectorAll('.reveal-on-scroll');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    animatedItems.forEach(item => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
   const handleChange = event => {
     const { name, value } = event.target;
     setForm(current => ({ ...current, [name]: value }));
@@ -424,7 +446,7 @@ export default function App() {
       <main>
         <section className="hero-section" id="home">
           <div className="container hero-layout">
-            <div className="hero-content">
+            <div className="hero-content reveal-on-scroll">
               <p className="hero-kicker">Full Stack Developer, AI/ML Engineer, and Data Scientist</p>
               <h1>
                 Hi, I&apos;m <span>Aryan Gupta</span>
@@ -478,7 +500,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="hero-photo-wrap">
+            <div className="hero-photo-wrap reveal-on-scroll">
               <div className="hero-photo-frame">
                 <img src="/aryan-profile-latest.jpeg" alt="Aryan Gupta" className="hero-photo" />
               </div>
@@ -488,15 +510,21 @@ export default function App() {
 
         <section className="section-block" id="skills">
           <div className="container">
-            <SectionTitle
-              title="Technical"
-              accent="Skills"
-              subtitle="Updated directly from your CV with languages, frameworks, core CS fundamentals, databases, and tools."
-            />
+            <div className="reveal-on-scroll">
+              <SectionTitle
+                title="Technical"
+                accent="Skills"
+                subtitle="Updated directly from your CV with languages, frameworks, core CS fundamentals, databases, and tools."
+              />
+            </div>
 
             <div className="card-grid skills-grid">
-              {skillGroups.map(group => (
-                <article key={group.title} className="panel-card">
+              {skillGroups.map((group, index) => (
+                <article
+                  key={group.title}
+                  className="panel-card reveal-on-scroll"
+                  style={{ transitionDelay: `${index * 70}ms` }}
+                >
                   <h3>{group.title}</h3>
                   <div className="chip-list">
                     {group.items.map(item => (
@@ -513,15 +541,21 @@ export default function App() {
 
         <section className="section-block" id="experience">
           <div className="container">
-            <SectionTitle
-              title="Training &"
-              accent="Experience"
-              subtitle="Hands-on learning and project-based development experience aligned with your CV."
-            />
+            <div className="reveal-on-scroll">
+              <SectionTitle
+                title="Training &"
+                accent="Experience"
+                subtitle="Hands-on learning and project-based development experience aligned with your CV."
+              />
+            </div>
 
             <div className="experience-list">
-              {experiences.map(item => (
-                <article key={`${item.title}-${item.period}`} className="panel-card experience-card">
+              {experiences.map((item, index) => (
+                <article
+                  key={`${item.title}-${item.period}`}
+                  className="panel-card experience-card reveal-on-scroll"
+                  style={{ transitionDelay: `${index * 80}ms` }}
+                >
                   <div className="experience-header">
                     <div>
                       <h3>{item.title}</h3>
@@ -570,15 +604,21 @@ export default function App() {
 
         <section className="section-block" id="projects">
           <div className="container">
-            <SectionTitle
-              title="Featured"
-              accent="Projects"
-              subtitle="Projects updated to reflect the exact apps and direction shown in your CV."
-            />
+            <div className="reveal-on-scroll">
+              <SectionTitle
+                title="Featured"
+                accent="Projects"
+                subtitle="Projects updated to reflect the exact apps and direction shown in your CV."
+              />
+            </div>
 
             <div className="project-grid">
-              {projects.map(project => (
-                <article key={project.title} className="panel-card project-card">
+              {projects.map((project, index) => (
+                <article
+                  key={project.title}
+                  className="panel-card project-card reveal-on-scroll"
+                  style={{ transitionDelay: `${index * 90}ms` }}
+                >
                   <p className="project-eyebrow">{project.eyebrow}</p>
                   <span className="project-category">{project.category}</span>
                   <h3>{project.title}</h3>
@@ -628,8 +668,12 @@ export default function App() {
             </div>
 
             <div className="stats-cards">
-              {highlightStats.map(({ value, label, icon: Icon }) => (
-                <article key={label} className="panel-card mini-stat">
+              {highlightStats.map(({ value, label, icon: Icon }, index) => (
+                <article
+                  key={label}
+                  className="panel-card mini-stat reveal-on-scroll"
+                  style={{ transitionDelay: `${index * 70}ms` }}
+                >
                   <Icon size={24} />
                   <strong>{value}</strong>
                   <span>{label}</span>
@@ -641,15 +685,21 @@ export default function App() {
 
         <section className="section-block" id="education">
           <div className="container">
-            <SectionTitle
-              title="My"
-              accent="Education"
-              subtitle="Academic background and formal education details from your latest CV."
-            />
+            <div className="reveal-on-scroll">
+              <SectionTitle
+                title="My"
+                accent="Education"
+                subtitle="Academic background and formal education details from your latest CV."
+              />
+            </div>
 
             <div className="stack-list">
-              {education.map(item => (
-                <article key={item.title} className="panel-card compact-card">
+              {education.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="panel-card compact-card reveal-on-scroll"
+                  style={{ transitionDelay: `${index * 70}ms` }}
+                >
                   <h4>{item.title}</h4>
                   <p>{item.school}</p>
                   <strong>{item.meta}</strong>
@@ -662,15 +712,21 @@ export default function App() {
 
         <section className="section-block" id="achievements">
           <div className="container">
-            <SectionTitle
-              title="My"
-              accent="Achievements"
-              subtitle="Competitive coding, hackathon participation, and milestones that reflect your growth."
-            />
+            <div className="reveal-on-scroll">
+              <SectionTitle
+                title="My"
+                accent="Achievements"
+                subtitle="Competitive coding, hackathon participation, and milestones that reflect your growth."
+              />
+            </div>
 
             <div className="stack-list">
-              {achievements.map(item => (
-                <article key={item.title} className="panel-card compact-card">
+              {achievements.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="panel-card compact-card reveal-on-scroll"
+                  style={{ transitionDelay: `${index * 70}ms` }}
+                >
                   <h4>{item.title}</h4>
                   <span>{item.date}</span>
                 </article>
@@ -681,15 +737,21 @@ export default function App() {
 
         <section className="section-block" id="certifications">
           <div className="container">
-            <SectionTitle
-              title="My"
-              accent="Certifications"
-              subtitle="Courses and certifications that support your AI, networking, and technical learning path."
-            />
+            <div className="reveal-on-scroll">
+              <SectionTitle
+                title="My"
+                accent="Certifications"
+                subtitle="Courses and certifications that support your AI, networking, and technical learning path."
+              />
+            </div>
 
             <div className="stack-list">
-              {certifications.map(item => (
-                <article key={item.title} className="panel-card compact-card">
+              {certifications.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="panel-card compact-card reveal-on-scroll"
+                  style={{ transitionDelay: `${index * 70}ms` }}
+                >
                   <h4>{item.title}</h4>
                   <span>{item.date}</span>
                   {item.images?.length ? (
@@ -709,14 +771,16 @@ export default function App() {
 
         <section className="section-block contact-section" id="contact">
           <div className="container">
-            <SectionTitle
-              title="Get in"
-              accent="Touch"
-              subtitle="Open to internships, collaborative work, and opportunities to keep building stronger software."
-            />
+            <div className="reveal-on-scroll">
+              <SectionTitle
+                title="Get in"
+                accent="Touch"
+                subtitle="Open to internships, collaborative work, and opportunities to keep building stronger software."
+              />
+            </div>
 
             <div className="contact-layout">
-              <div className="contact-info">
+              <div className="contact-info reveal-on-scroll">
                 <h3>Contact Information</h3>
 
                 <div className="contact-list">
@@ -749,7 +813,7 @@ export default function App() {
                 </div>
               </div>
 
-              <form className="panel-card contact-form" onSubmit={handleSubmit}>
+              <form className="panel-card contact-form reveal-on-scroll" onSubmit={handleSubmit} style={{ transitionDelay: '90ms' }}>
                 <h3>Send Message</h3>
 
                 {sent ? (
