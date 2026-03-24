@@ -525,6 +525,15 @@ img {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 
+.image-btn-inline {
+  max-width: 220px;
+}
+
+.certificate-image-btn {
+  display: block;
+  margin-top: 28px;
+}
+
 .stats-cards {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 46px;

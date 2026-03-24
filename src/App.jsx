@@ -26,6 +26,8 @@ const navItems = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Education', href: '#education' },
+  { label: 'Achievements', href: '#achievements' },
+  { label: 'Certifications', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -70,6 +72,7 @@ const experiences = [
     period: "Jun 2025 - Jul 2025",
     location: 'Phagwara, Punjab',
     tags: ['Power BI', 'Python', 'MySQL', 'Excel'],
+    images: ['/my-training-certificate.png'],
     points: [
       'Designed interactive Power BI dashboards using DAX, data modeling, and real business datasets to turn raw data into decision-ready reports.',
       'Built end-to-end ML pipelines covering data cleaning, feature engineering, model training, and performance evaluation in Python.',
@@ -186,9 +189,21 @@ const achievements = [
 ];
 
 const certifications = [
-  { title: 'Build Generative AI Apps and Solution', date: "Aug '25" },
-  { title: 'Master Generative AI and Generative AI Tools', date: "Aug '25" },
-  { title: 'Fundamentals of Network Communication', date: "Oct '24" },
+  {
+    title: 'Build Generative AI Apps and Solution',
+    date: "Aug '25",
+    images: ['/build-ai-generative.png'],
+  },
+  {
+    title: 'Master Generative AI and Generative AI Tools',
+    date: "Aug '25",
+    images: ['/master-generative-ai.png'],
+  },
+  {
+    title: 'Fundamentals of Network Communication',
+    date: "Oct '24",
+    images: ['/fundamentals-of-computer-network.png'],
+  },
 ];
 
 const contactLinks = [
@@ -529,6 +544,16 @@ export default function App() {
                       <li key={point}>{point}</li>
                     ))}
                   </ul>
+
+                  {item.images?.length ? (
+                    <button
+                      type="button"
+                      className="image-btn image-btn-inline"
+                      onClick={() => setGallery({ title: item.title, images: item.images, index: 0 })}
+                    >
+                      View Image
+                    </button>
+                  ) : null}
                 </article>
               ))}
             </div>
@@ -609,49 +634,67 @@ export default function App() {
         <section className="section-block" id="education">
           <div className="container">
             <SectionTitle
-              title="Education &"
-              accent="Achievements"
-              subtitle="Academic background, certificates, and achievements refreshed from your latest CV."
+              title="My"
+              accent="Education"
+              subtitle="Academic background and formal education details from your latest CV."
             />
 
-            <div className="three-col-grid">
-              <div>
-                <h3 className="column-heading">Education</h3>
-                <div className="stack-list">
-                  {education.map(item => (
-                    <article key={item.title} className="panel-card compact-card">
-                      <h4>{item.title}</h4>
-                      <p>{item.school}</p>
-                      <strong>{item.meta}</strong>
-                      <span>{item.status}</span>
-                    </article>
-                  ))}
-                </div>
-              </div>
+            <div className="stack-list">
+              {education.map(item => (
+                <article key={item.title} className="panel-card compact-card">
+                  <h4>{item.title}</h4>
+                  <p>{item.school}</p>
+                  <strong>{item.meta}</strong>
+                  <span>{item.status}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-              <div>
-                <h3 className="column-heading">Awards & Achievements</h3>
-                <div className="stack-list">
-                  {achievements.map(item => (
-                    <article key={item.title} className="panel-card compact-card">
-                      <h4>{item.title}</h4>
-                      <span>{item.date}</span>
-                    </article>
-                  ))}
-                </div>
-              </div>
+        <section className="section-block" id="achievements">
+          <div className="container">
+            <SectionTitle
+              title="My"
+              accent="Achievements"
+              subtitle="Competitive coding, hackathon participation, and milestones that reflect your growth."
+            />
 
-              <div>
-                <h3 className="column-heading">Certifications</h3>
-                <div className="stack-list">
-                  {certifications.map(item => (
-                    <article key={item.title} className="panel-card compact-card">
-                      <h4>{item.title}</h4>
-                      <span>{item.date}</span>
-                    </article>
-                  ))}
-                </div>
-              </div>
+            <div className="stack-list">
+              {achievements.map(item => (
+                <article key={item.title} className="panel-card compact-card">
+                  <h4>{item.title}</h4>
+                  <span>{item.date}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-block" id="certifications">
+          <div className="container">
+            <SectionTitle
+              title="My"
+              accent="Certifications"
+              subtitle="Courses and certifications that support your AI, networking, and technical learning path."
+            />
+
+            <div className="stack-list">
+              {certifications.map(item => (
+                <article key={item.title} className="panel-card compact-card">
+                  <h4>{item.title}</h4>
+                  <span>{item.date}</span>
+                  {item.images?.length ? (
+                    <button
+                      type="button"
+                      className="image-btn image-btn-inline certificate-image-btn"
+                      onClick={() => setGallery({ title: item.title, images: item.images, index: 0 })}
+                    >
+                      View Image
+                    </button>
+                  ) : null}
+                </article>
+              ))}
             </div>
           </div>
         </section>
