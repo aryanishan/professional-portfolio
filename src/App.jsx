@@ -210,8 +210,8 @@ const contactLinks = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'myteamo34221@gmail.com',
-    href: 'mailto:myteamo34221@gmail.com',
+    value: 'myteam034221@gmail.com',
+    href: 'mailto:myteam034221@gmail.com',
   },
   {
     icon: Phone,
@@ -240,7 +240,7 @@ const socialLinks = [
   {
     icon: Mail,
     label: 'Email',
-    href: 'mailto:myteamo34221@gmail.com',
+    href: 'mailto:myteam034221@gmail.com',
   },
 ];
 
@@ -423,57 +423,65 @@ export default function App() {
 
       <main>
         <section className="hero-section" id="home">
-          <div className="container hero-content">
-            <p className="hero-kicker">Full Stack Developer, AI/ML Engineer, and Data Scientist</p>
-            <h1>
-              Hi, I&apos;m <span>Aryan Gupta</span>
-            </h1>
-            <h3>Building scalable products across full stack development, AI/ML systems, and data-driven solutions</h3>
-            <p className="hero-copy">
-              I work across modern web development, machine learning, and data science with
-              JavaScript, TypeScript, Python, ReactJS, NodeJS, ExpressJS, Fast API, SQL,
-              NoSQL, and analytics tools. I focus on building scalable applications,
-              intelligent systems, and practical solutions backed by strong engineering and
-              data thinking.
-            </p>
+          <div className="container hero-layout">
+            <div className="hero-content">
+              <p className="hero-kicker">Full Stack Developer, AI/ML Engineer, and Data Scientist</p>
+              <h1>
+                Hi, I&apos;m <span>Aryan Gupta</span>
+              </h1>
+              <h3>Building scalable products across full stack development, AI/ML systems, and data-driven solutions</h3>
+              <p className="hero-copy">
+                I work across modern web development, machine learning, and data science with
+                JavaScript, TypeScript, Python, ReactJS, NodeJS, ExpressJS, Fast API, SQL,
+                NoSQL, and analytics tools. I focus on building scalable applications,
+                intelligent systems, and practical solutions backed by strong engineering and
+                data thinking.
+              </p>
 
-            <div className="hero-meta">
-              <span>
-                <MapPin size={16} />
-                Kanpur, Uttar Pradesh
-              </span>
-              <span>
-                <GraduationCap size={16} />
-                Lovely Professional University (CGPA: 6.45)
-              </span>
-            </div>
+              <div className="hero-meta">
+                <span>
+                  <MapPin size={16} />
+                  Kanpur, Uttar Pradesh
+                </span>
+                <span>
+                  <GraduationCap size={16} />
+                  Lovely Professional University (CGPA: 6.45)
+                </span>
+              </div>
 
-            <div className="hero-actions">
-              <a className="primary-btn" href="#contact">
-                <Mail size={18} />
-                Contact Me
-              </a>
-              <a className="secondary-btn" href="/aryan-cv-latest.jpg" target="_blank" rel="noreferrer">
-                <ExternalLink size={18} />
-                View Resume
-              </a>
-            </div>
-
-            <div className="social-links" aria-label="Social links">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                  <Icon size={20} />
+              <div className="hero-actions">
+                <a className="primary-btn" href="#contact">
+                  <Mail size={18} />
+                  Contact Me
                 </a>
-              ))}
+                <a className="secondary-btn" href="/aryan-cv-latest.jpg" target="_blank" rel="noreferrer">
+                  <ExternalLink size={18} />
+                  View Resume
+                </a>
+              </div>
+
+              <div className="social-links" aria-label="Social links">
+                {socialLinks.map(({ icon: Icon, href, label }) => (
+                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
+                    <Icon size={20} />
+                  </a>
+                ))}
+              </div>
+
+              <div className="stats-row">
+                {heroStats.map(stat => (
+                  <div key={stat.label} className="stat-block">
+                    <strong>{stat.value}</strong>
+                    <span>{stat.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="stats-row">
-              {heroStats.map(stat => (
-                <div key={stat.label} className="stat-block">
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </div>
-              ))}
+            <div className="hero-photo-wrap">
+              <div className="hero-photo-frame">
+                <img src="/aryan-profile-latest.jpeg" alt="Aryan Gupta" className="hero-photo" />
+              </div>
             </div>
           </div>
         </section>
