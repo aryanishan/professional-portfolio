@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   BriefcaseBusiness,
   CalendarDays,
+  ChevronLeft,
+  ChevronRight,
   ExternalLink,
   FolderGit2,
   Github,
@@ -91,6 +93,15 @@ const projects = [
     ],
     github: 'https://github.com/aryanishan/creator-connect',
     live: '',
+    images: [
+      '/creator-connect-1.png',
+      '/creator-connect-2.png',
+      '/creator-connect-3.png',
+      '/creator-connect-4.png',
+      '/creator-connect-5.png',
+      '/creator-connect-6.png',
+      '/creator-connect-7.png',
+    ],
   },
   {
     eyebrow: 'Featured Project',
@@ -106,6 +117,14 @@ const projects = [
     ],
     github: 'https://github.com/aryanishan/Travel-Companion-Project',
     live: 'https://travel-companion-project-1.onrender.com',
+    images: [
+      '/travel-companion-1.png',
+      '/travel-companion-2.png',
+      '/travel-companion-3.png',
+      '/travel-companion-4.png',
+      '/travel-companion-5.png',
+      '/travel-companion-6.png',
+    ],
   },
   {
     eyebrow: 'Featured Project',
@@ -121,6 +140,14 @@ const projects = [
     ],
     github: 'https://github.com/aryanishan/Spam-message-detector',
     live: 'https://spam-message-detector-l7vv.onrender.com',
+    images: [
+      '/spam-sms-1.png',
+      '/spam-sms-2.png',
+      '/spam-sms-3.png',
+      '/spam-sms-4.png',
+      '/spam-sms-5.png',
+      '/spam-sms-6.png',
+    ],
   },
 ];
 
@@ -221,6 +248,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [gallery, setGallery] = useState(null);
 
   const configuredApiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').trim();
   const apiBaseUrl = useMemo(
@@ -294,6 +322,47 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    if (!gallery) return undefined;
+
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') {
+        setGallery(null);
+      }
+
+      if (event.key === 'ArrowRight') {
+        setGallery(current => ({
+          ...current,
+          index: (current.index + 1) % current.images.length,
+        }));
+      }
+
+      if (event.key === 'ArrowLeft') {
+        setGallery(current => ({
+          ...current,
+          index: (current.index - 1 + current.images.length) % current.images.length,
+        }));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [gallery]);
+
+  const showPreviousImage = () => {
+    setGallery(current => ({
+      ...current,
+      index: (current.index - 1 + current.images.length) % current.images.length,
+    }));
+  };
+
+  const showNextImage = () => {
+    setGallery(current => ({
+      ...current,
+      index: (current.index + 1) % current.images.length,
+    }));
+  };
+
   return (
     <div className="app-shell">
       <header className="site-header">
@@ -340,15 +409,17 @@ export default function App() {
       <main>
         <section className="hero-section" id="home">
           <div className="container hero-content">
-            <p className="hero-kicker">Computer Science Student, Full Stack Developer, and Problem Solver</p>
+            <p className="hero-kicker">Full Stack Developer, AI/ML Engineer, and Data Scientist</p>
             <h1>
               Hi, I&apos;m <span>Aryan Gupta</span>
             </h1>
-            <h3>Building scalable apps across web development, backend systems, and machine learning</h3>
+            <h3>Building scalable products across full stack development, AI/ML systems, and data-driven solutions</h3>
             <p className="hero-copy">
-              Working with JavaScript, TypeScript, Python, ReactJS, NodeJS, ExpressJS, Fast
-              API, databases, and core computer science fundamentals. Focused on useful
-              products, scalable architecture, and consistent hands-on learning.
+              I work across modern web development, machine learning, and data science with
+              JavaScript, TypeScript, Python, ReactJS, NodeJS, ExpressJS, Fast API, SQL,
+              NoSQL, and analytics tools. I focus on building scalable applications,
+              intelligent systems, and practical solutions backed by strong engineering and
+              data thinking.
             </p>
 
             <div className="hero-meta">
@@ -511,6 +582,14 @@ export default function App() {
                       </span>
                     )}
                   </div>
+
+                  <button
+                    type="button"
+                    className="image-btn"
+                    onClick={() => setGallery({ title: project.title, images: project.images, index: 0 })}
+                  >
+                    View Images
+                  </button>
                 </article>
               ))}
             </div>
@@ -673,6 +752,39 @@ export default function App() {
           </div>
         </section>
       </main>
+
+      {gallery ? (
+        <div className="gallery-overlay" onClick={() => setGallery(null)}>
+          <div className="gallery-modal" onClick={event => event.stopPropagation()}>
+            <button type="button" className="gallery-close" onClick={() => setGallery(null)}>
+              <X size={20} />
+            </button>
+
+            <div className="gallery-top">
+              <h3>{gallery.title}</h3>
+              <span>
+                {gallery.index + 1} / {gallery.images.length}
+              </span>
+            </div>
+
+            <div className="gallery-frame">
+              <button type="button" className="gallery-nav prev" onClick={showPreviousImage} aria-label="Previous image">
+                <ChevronLeft size={22} />
+              </button>
+
+              <img
+                src={gallery.images[gallery.index]}
+                alt={`${gallery.title} screenshot ${gallery.index + 1}`}
+                className="gallery-image"
+              />
+
+              <button type="button" className="gallery-nav next" onClick={showNextImage} aria-label="Next image">
+                <ChevronRight size={22} />
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
