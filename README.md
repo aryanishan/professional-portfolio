@@ -1,4 +1,4 @@
-# Portfolio_new
+# professional-portfolio
 
 This is a React + Vite portfolio project with a Node.js backend for the contact form.
 
