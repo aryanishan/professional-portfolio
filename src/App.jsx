@@ -28,7 +28,7 @@ const navItems = [
 ];
 
 const heroStats = [
-  { value: '600+', label: 'Problems Solved' },
+  { value: '700+', label: 'Problems Solved' },
   { value: '6.45', label: 'CGPA' },
   { value: '3+', label: 'Featured Projects' },
   { value: '3', label: 'Certifications' },
@@ -37,23 +37,27 @@ const heroStats = [
 const skillGroups = [
   {
     title: 'Languages',
-    items: ['Python', 'C++', 'JavaScript', 'C', 'Kotlin'],
+    items: ['Python', 'C++', 'JavaScript', 'TypeScript', 'C', 'Kotlin', 'Java'],
   },
   {
-    title: 'Web & Frameworks',
-    items: ['HTML', 'CSS', 'React.js', 'Node.js', 'Express.js', 'Flask'],
+    title: 'Backend & Frameworks',
+    items: ['NodeJS', 'ReactJS', 'ExpressJS', 'Fast API', 'REST APIs', 'WebSockets', 'Scikit-learn', 'Jetpack Compose'],
   },
   {
-    title: 'Tools',
-    items: ['Git', 'GitHub', 'Power BI', 'MySQL', 'Excel', 'REST APIs'],
+    title: 'Core CS',
+    items: ['Data Structure', 'Algorithms', 'OOP', 'System Design', 'Computer Network', 'Operating System', 'DBMS'],
   },
   {
-    title: 'ML & Data',
-    items: ['Scikit-learn', 'NLP', 'TF-IDF', 'Naive Bayes', 'Data Cleaning'],
+    title: 'Databases',
+    items: ['MySQL', 'MongoDB', 'PostgreSQL'],
   },
   {
-    title: 'Concepts',
-    items: ['Responsive Design', 'Problem Solving', 'API Integration', 'Rapid Learning', 'Collaboration'],
+    title: 'Tools & Platforms',
+    items: ['Git', 'GitHub', 'MySQL', 'PowerBI', 'Docker', 'Linux'],
+  },
+  {
+    title: 'Soft Skills',
+    items: ['Problem-Solving', 'Adaptability', 'Rapid Learning', 'User-Centric Thinking', 'Collaboration'],
   },
 ];
 
@@ -65,21 +69,21 @@ const experiences = [
     location: 'Phagwara, Punjab',
     tags: ['Power BI', 'Python', 'MySQL', 'Excel'],
     points: [
-      'Designed interactive Power BI dashboards using DAX, data modeling, and real business datasets.',
-      'Built end-to-end machine learning workflows from cleaning and feature engineering to training and evaluation.',
-      'Applied MySQL and Excel for structured analysis, joins, reporting, pivot tables, and VLOOKUP-based workflows.',
+      'Designed interactive Power BI dashboards using DAX, data modeling, and real business datasets to turn raw data into decision-ready reports.',
+      'Built end-to-end ML pipelines covering data cleaning, feature engineering, model training, and performance evaluation in Python.',
+      'Applied MySQL and Excel for structured data management, complex JOIN queries, pivot tables, VLOOKUPs, and automated reporting.',
     ],
   },
   {
     title: 'Full Stack Project Developer',
-    organization: 'Personal Projects',
-    period: "Sep 2025 - Feb 2026",
+    organization: 'Personal Project Work',
+    period: "Jun 2025 - Feb 2026",
     location: 'Remote',
-    tags: ['React.js', 'Node.js', 'Express.js', 'JavaScript'],
+    tags: ['React.js', 'TypeScript', 'Node.js', 'Express.js'],
     points: [
-      'Built portfolio-grade web applications focused on clean interfaces, responsive layouts, and practical user flows.',
-      'Developed secure backend logic, API integrations, and scalable project structures for creator and utility platforms.',
-      'Strengthened product thinking through independent design, implementation, debugging, and deployment-ready development.',
+      'Built scalable applications spanning creator collaboration, travel matching, and machine learning-based SMS classification.',
+      'Developed secure backend services for authentication, matching, interactions, and data management across full stack projects.',
+      'Designed modular architectures that support future expansion such as payments, recommendations, and advanced user workflows.',
     ],
   },
 ];
@@ -90,31 +94,43 @@ const projects = [
     category: 'Collaboration Platform',
     title: 'Creator Connect App',
     description:
-      'Built a scalable platform enabling small content creators to connect, collaborate, and grow with structured backend services and a clean user flow.',
-    tags: ['Node.js', 'Express.js', 'JavaScript', 'REST APIs'],
-    bullets: ['Creator-focused workflows', 'Scalable backend structure', 'Premium-ready architecture'],
+      'Built a scalable platform enabling small content creators to connect, collaborate, and grow using a microservices architecture to handle profiles, matching, and interactions independently.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'REST APIs'],
+    bullets: [
+      'Developed secure backend services for authentication, creator matching, and data management',
+      'Integrated a payment system to support monetization and premium collaboration tools',
+      'Structured the system for efficient service-to-service communication and smooth UX',
+    ],
+    github: 'https://github.com/aryanishan',
+    live: '#',
+  },
+  {
+    eyebrow: 'Featured Project',
+    category: 'Travel Platform',
+    title: 'Travel Companion App',
+    description:
+      'Developed a platform that matches travelers based on destination, schedule, and preferences, enabling safer and more social travel experiences.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express.js', 'REST APIs'],
+    bullets: [
+      'Implemented intelligent user matching and group formation for collaborative trip planning',
+      'Built the project with scalable and modular system design for future enhancements',
+      'Prepared the architecture for guide booking, payments, and recommendation features',
+    ],
     github: 'https://github.com/aryanishan',
     live: '#',
   },
   {
     eyebrow: 'Featured Project',
     category: 'Machine Learning',
-    title: 'Spam Detector - AI Based Detector',
+    title: 'Spam SMS Detector',
     description:
-      'Trained an NLP-based model using TF-IDF and Naive Bayes, then served real-time predictions through a practical Flask API.',
-    tags: ['Python', 'Scikit-learn', 'Flask', 'NLP'],
-    bullets: ['Spam vs ham classification', 'Model-backed API', 'Real-time message prediction'],
-    github: 'https://github.com/aryanishan',
-    live: '#',
-  },
-  {
-    eyebrow: 'Featured Project',
-    category: 'Frontend Utility',
-    title: 'Weather Fetching App',
-    description:
-      'Developed an interactive weather dashboard with real-time API data, recent search history, and a smooth, user-friendly interface.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'OpenWeather API'],
-    bullets: ['Real-time weather data', 'Search history with LocalStorage', 'Responsive weather dashboard'],
+      'Trained an NLP-based machine learning model using TF-IDF and Naive Bayes to classify SMS messages as spam or ham with high accuracy.',
+    tags: ['Python', 'Scikit-learn', 'Flask', 'Fast API', 'NLP'],
+    bullets: [
+      'Built an API to serve real-time predictions using the exported model',
+      'Classifies whether the received message is spam or not',
+      'Used NLP with TF-IDF and Naive Bayes for practical text classification',
+    ],
     github: 'https://github.com/aryanishan',
     live: '#',
   },
@@ -122,7 +138,7 @@ const projects = [
 
 const highlightStats = [
   { value: '3', label: 'Projects Shipped', icon: FolderGit2 },
-  { value: '600+', label: 'Problems Solved', icon: Trophy },
+  { value: '700+', label: 'Problems Solved', icon: Trophy },
   { value: '3', label: 'Certificates', icon: GraduationCap },
   { value: '1', label: 'Training Program', icon: BriefcaseBusiness },
 ];
@@ -149,9 +165,9 @@ const education = [
 ];
 
 const achievements = [
-  { title: '600+ Coding Problems Solved', date: 'Ongoing' },
-  { title: 'Code-A-Haunt 24hrs Hackathon Participant', date: '2025' },
-  { title: 'Independent Full Stack Project Builds', date: '2025 - 2026' },
+  { title: 'Solved 700+ coding problems across LeetCode, sharpening problem-solving skills', date: 'Ongoing' },
+  { title: 'Participated in Code-A-Haunt 24hrs Hackathon', date: '2025' },
+  { title: 'Built multiple full stack and ML projects aligned with practical product ideas', date: '2025 - 2026' },
 ];
 
 const certifications = [
@@ -164,8 +180,8 @@ const contactLinks = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'myteam034221@gmail.com',
-    href: 'mailto:myteam034221@gmail.com',
+    value: 'myteamo34221@gmail.com',
+    href: 'mailto:myteamo34221@gmail.com',
   },
   {
     icon: Phone,
@@ -189,12 +205,12 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/aryan-gupta-2901',
+    href: 'https://www.linkedin.com/in/aryan-gupta-ago1',
   },
   {
     icon: Mail,
     label: 'Email',
-    href: 'mailto:myteam034221@gmail.com',
+    href: 'mailto:myteamo34221@gmail.com',
   },
 ];
 
@@ -354,15 +370,15 @@ export default function App() {
       <main>
         <section className="hero-section" id="home">
           <div className="container hero-content">
-            <p className="hero-kicker">Computer Science Student & Full Stack Developer</p>
+            <p className="hero-kicker">Computer Science Student, Full Stack Developer, and Problem Solver</p>
             <h1>
               Hi, I&apos;m <span>Aryan Gupta</span>
             </h1>
-            <h3>Building clean web experiences and practical full stack projects</h3>
+            <h3>Building scalable apps across web development, backend systems, and machine learning</h3>
             <p className="hero-copy">
-              Specializing in React.js, Node.js, Express.js, Python, and machine learning
-              workflows. Focused on building responsive interfaces, useful products, and
-              strong problem-solving fundamentals.
+              Working with JavaScript, TypeScript, Python, ReactJS, NodeJS, ExpressJS, Fast
+              API, databases, and core computer science fundamentals. Focused on useful
+              products, scalable architecture, and consistent hands-on learning.
             </p>
 
             <div className="hero-meta">
@@ -381,7 +397,7 @@ export default function App() {
                 <Mail size={18} />
                 Contact Me
               </a>
-              <a className="secondary-btn" href="/my-cv.png" target="_blank" rel="noreferrer">
+              <a className="secondary-btn" href="/aryan-cv-latest.jpg" target="_blank" rel="noreferrer">
                 <ExternalLink size={18} />
                 View Resume
               </a>
@@ -411,7 +427,7 @@ export default function App() {
             <SectionTitle
               title="Technical"
               accent="Skills"
-              subtitle="A concise toolkit built from coursework, hands-on projects, and self-driven practice."
+              subtitle="Updated directly from your CV with languages, frameworks, core CS fundamentals, databases, and tools."
             />
 
             <div className="card-grid skills-grid">
@@ -434,9 +450,9 @@ export default function App() {
         <section className="section-block" id="experience">
           <div className="container">
             <SectionTitle
-              title="Professional"
+              title="Training &"
               accent="Experience"
-              subtitle="Project work and training that reflect practical development experience."
+              subtitle="Hands-on learning and project-based development experience aligned with your CV."
             />
 
             <div className="experience-list">
@@ -483,7 +499,7 @@ export default function App() {
             <SectionTitle
               title="Featured"
               accent="Projects"
-              subtitle="A snapshot of applications and experiments that showcase frontend, backend, and ML work."
+              subtitle="Projects updated to reflect the exact apps and direction shown in your CV."
             />
 
             <div className="project-grid">
@@ -539,7 +555,7 @@ export default function App() {
             <SectionTitle
               title="Education &"
               accent="Achievements"
-              subtitle="Academic background, certifications, and milestones collected from your existing CV details."
+              subtitle="Academic background, certificates, and achievements refreshed from your latest CV."
             />
 
             <div className="three-col-grid">
@@ -628,7 +644,7 @@ export default function App() {
                       <div>
                         <span>{label}</span>
                         {href ? (
-                          <a href={href}>{value}</a>
+                        <a href={href}>{value}</a>
                         ) : (
                           <p>{value}</p>
                         )}
