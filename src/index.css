@@ -252,6 +252,13 @@ img {
   box-shadow: 0 16px 38px rgba(56, 104, 227, 0.18);
 }
 
+.disabled-btn {
+  opacity: 0.58;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 .secondary-btn {
   color: var(--text);
   border-color: var(--border);

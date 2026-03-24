@@ -89,8 +89,8 @@ const projects = [
       'Integrated a payment system to support monetization and premium collaboration tools',
       'Structured the system for efficient service-to-service communication and smooth UX',
     ],
-    github: 'https://github.com/aryanishan',
-    live: '#',
+    github: 'https://github.com/aryanishan/creator-connect',
+    live: '',
   },
   {
     eyebrow: 'Featured Project',
@@ -104,8 +104,8 @@ const projects = [
       'Built the project with scalable and modular system design for future enhancements',
       'Prepared the architecture for guide booking, payments, and recommendation features',
     ],
-    github: 'https://github.com/aryanishan',
-    live: '#',
+    github: 'https://github.com/aryanishan/Travel-Companion-Project',
+    live: 'https://travel-companion-project-1.onrender.com',
   },
   {
     eyebrow: 'Featured Project',
@@ -119,8 +119,8 @@ const projects = [
       'Classifies whether the received message is spam or not',
       'Used NLP with TF-IDF and Naive Bayes for practical text classification',
     ],
-    github: 'https://github.com/aryanishan',
-    live: '#',
+    github: 'https://github.com/aryanishan/Spam-message-detector',
+    live: 'https://spam-message-detector-l7vv.onrender.com',
   },
 ];
 
@@ -199,24 +199,6 @@ const socialLinks = [
     icon: Mail,
     label: 'Email',
     href: 'mailto:myteamo34221@gmail.com',
-  },
-];
-
-const testimonialCards = [
-  {
-    quote: 'Recommendations and references can be shared during applications or interviews.',
-    name: 'References',
-    role: 'Available on request',
-  },
-  {
-    quote: 'This portfolio highlights project work, training, certifications, and academic progress in one place.',
-    name: 'Profile Summary',
-    role: 'Student Developer',
-  },
-  {
-    quote: 'Focused on clean frontend presentation, full stack learning, and problem-solving driven development.',
-    name: 'Work Style',
-    role: 'Full Stack Learner',
   },
 ];
 
@@ -517,10 +499,17 @@ export default function App() {
                       <Github size={18} />
                       Code
                     </a>
-                    <a href={project.live} target="_blank" rel="noreferrer" className="primary-btn">
-                      <ExternalLink size={18} />
-                      Demo
-                    </a>
+                    {project.live ? (
+                      <a href={project.live} target="_blank" rel="noreferrer" className="primary-btn">
+                        <ExternalLink size={18} />
+                        Demo
+                      </a>
+                    ) : (
+                      <span className="primary-btn disabled-btn" aria-disabled="true">
+                        <ExternalLink size={18} />
+                        Demo Unavailable
+                      </span>
+                    )}
                   </div>
                 </article>
               ))}
@@ -584,29 +573,6 @@ export default function App() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-block" id="testimonials">
-          <div className="container">
-            <SectionTitle
-              title="Profile"
-              accent="Notes"
-              subtitle="A clean placeholder section in the same visual style for future recommendations or references."
-            />
-
-            <div className="card-grid testimonial-grid">
-              {testimonialCards.map(card => (
-                <article key={card.name} className="panel-card testimonial-card">
-                  <p className="quote-mark">99</p>
-                  <p className="testimonial-copy">{card.quote}</p>
-                  <div className="testimonial-meta">
-                    <strong>{card.name}</strong>
-                    <span>{card.role}</span>
-                  </div>
-                </article>
-              ))}
             </div>
           </div>
         </section>
