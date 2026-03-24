@@ -74,18 +74,6 @@ const experiences = [
       'Applied MySQL and Excel for structured data management, complex JOIN queries, pivot tables, VLOOKUPs, and automated reporting.',
     ],
   },
-  {
-    title: 'Full Stack Project Developer',
-    organization: 'Personal Project Work',
-    period: "Jun 2025 - Feb 2026",
-    location: 'Remote',
-    tags: ['React.js', 'TypeScript', 'Node.js', 'Express.js'],
-    points: [
-      'Built scalable applications spanning creator collaboration, travel matching, and machine learning-based SMS classification.',
-      'Developed secure backend services for authentication, matching, interactions, and data management across full stack projects.',
-      'Designed modular architectures that support future expansion such as payments, recommendations, and advanced user workflows.',
-    ],
-  },
 ];
 
 const projects = [
@@ -205,7 +193,7 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/aryan-gupta-ago1',
+    href: 'https://www.linkedin.com/in/aryan-gupta-ag01/',
   },
   {
     icon: Mail,
